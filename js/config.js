@@ -1,0 +1,7 @@
+export const CFG = {
+  TILE: 64, TANK_R: 22, SPEED: 220, TURN: 3, HP: 100, DAMAGE: 25, RELOAD: 0.7,
+  SHELL_SPEED: 600, SHELL_LIFE: 2, SHELL_R: 5, RESPAWN: 3, INVULN: 2,
+  KILL_LIMIT: 15, ROUND_TIME: 300, INTERMISSION: 8, MAX_TANKS: 8, MAX_STEP: 1 / 60,
+  PICKUP_LIFE: 20, PICKUP_WAIT: 15,
+};
+export const COLORS = ['#4caf50', '#e53935', '#2f86eb', '#ffb300', '#ab47bc', '#00bfa5', '#ff7043', '#ec407a'];
