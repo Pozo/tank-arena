@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Tank Arena</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='3' y='9' width='22' height='16' rx='4' fill='%234caf50'/><rect x='14' y='15' width='17' height='4' fill='%23222'/></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game" aria-label="Tank arena"></canvas>
+
+  <section id="menu" class="screen">
+    <form id="menu-form" class="card">
+      <h1>TANK <em>ARENA</em></h1>
+      <p>Blow up your friends. Up to 8 players.</p>
+      <label>Your name <input id="name" maxlength="16" autocomplete="nickname" placeholder="Tank"></label>
+      <button id="create" type="submit" class="primary">Create room</button>
+      <div class="or">or join a friend</div>
+      <div class="row">
+        <input id="code" maxlength="5" placeholder="CODE" aria-label="Room code" autocapitalize="characters" autocomplete="off">
+        <button id="join" type="submit">Join</button>
+      </div>
+      <p id="status" role="status"></p>
+      <small>WASD drive · mouse aim · click or Space fire<br>Phone: left thumb drives, right thumb aims and fires</small>
+    </form>
+  </section>
+
+  <section id="lobby" class="screen" hidden>
+    <div class="card">
+      <h2>Room <em id="room-code"></em></h2>
+      <div class="row">
+        <input id="invite" readonly aria-label="Invite link">
+        <button id="copy" type="button">Copy link</button>
+      </div>
+      <ul id="players" class="list"></ul>
+      <div id="host-controls">
+        <label class="row">Bots <select id="bots"></select></label>
+        <button id="start" type="button" class="primary">Start match</button>
+        <small>Keep this tab open: your browser runs the game.</small>
+      </div>
+      <p id="waiting">Waiting for the host to start…</p>
+      <button type="button" class="leave">Leave</button>
+    </div>
+  </section>
+
+  <section id="hud" hidden>
+    <div id="timer" class="chip"></div>
+    <div id="side">
+      <div class="row">
+        <button id="hud-copy" type="button">Invite</button>
+        <button id="mute" type="button" aria-label="Toggle sound"></button>
+        <button type="button" class="leave">Leave</button>
+      </div>
+      <ul id="scores" class="list chip"></ul>
+      <div id="feed" aria-live="polite"></div>
+    </div>
+    <div id="health">
+      <div id="buff"></div>
+      <div class="bar"><div id="hp-fill"></div><span id="hp-text"></span></div>
+    </div>
+    <div id="respawn" role="status"></div>
+    <div id="round-over" class="screen" hidden>
+      <div class="card">
+        <h2 id="winner"></h2>
+        <ul id="final" class="list"></ul>
+        <p>Next round starts in a few seconds…</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="error" class="screen" hidden>
+    <div class="card">
+      <h2>Oh no</h2>
+      <p id="error-text"></p>
+      <button type="button" class="leave primary">Back to menu</button>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.5/dist/peerjs.min.js" integrity="sha384-x0YgkOr/3UOZP2CRDxGW9e0Q+2Qjyr3uJrm4xU32Y7ZCNAo7Cc7bjhrZMi/dwczu" crossorigin="anonymous"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
